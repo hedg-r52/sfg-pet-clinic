@@ -9,4 +9,5 @@ import org.springframework.stereotype.Service;
  * date: 17.11.2021
  */
 public interface OwnerRepository extends CrudRepository<Owner, Long> {
+    Owner findByLastName(String lastName);
 }
