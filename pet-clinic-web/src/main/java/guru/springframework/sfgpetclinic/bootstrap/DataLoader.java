@@ -52,73 +52,73 @@ public class DataLoader implements CommandLineRunner {
     }
 
     private void loadData() {
-        PetType dog = new PetType();
-        dog.setName("Dog");
+        PetType dog = PetType.builder().name("Dog").build();
         PetType savedDogPetType = petTypeService.save(dog);
 
-        PetType cat = new PetType();
-        dog.setName("Cat");
+        PetType cat = PetType.builder().name("Cat").build();
         PetType savedCatPetType = petTypeService.save(cat);
 
-        Owner owner1 = new Owner();
-        owner1.setFirstName("Michael");
-        owner1.setLastName("Weston");
-        owner1.setAddress("123 Brickerel");
-        owner1.setCity("Miami");
-        owner1.setTelephone("1231231234");
+        Owner owner1 = Owner.builder()
+                .firstName("Michael")
+                .lastName("Weston")
+                .address("123 Brickerel")
+                .city("Miami")
+                .telephone("1231231234")
+                .build();
 
-        Speciality radiology = new Speciality();
-        radiology.setDescription("Radiology");
+        Speciality radiology = Speciality.builder().description("Radiology").build();
         Speciality savedRadiology = specialtyService.save(radiology);
 
-        Speciality surgery = new Speciality();
-        radiology.setDescription("Surgery");
+        Speciality surgery = Speciality.builder().description("Surgery").build();
         Speciality savedSurgery = specialtyService.save(surgery);
 
-        Speciality dentistry = new Speciality();
-        radiology.setDescription("Dentistry");
+        Speciality dentistry = Speciality.builder().description("Dentistry").build();
         Speciality savedDentistry = specialtyService.save(dentistry);
 
-        Pet mikesPet = new Pet();
-        mikesPet.setPetType(savedDogPetType);
-        mikesPet.setOwner(owner1);
-        mikesPet.setBirthDate(LocalDate.now());
-        mikesPet.setName("Rosco");
+        Pet mikesPet = Pet.builder()
+                .petType(savedDogPetType)
+                .owner(owner1)
+                .birthDate(LocalDate.now())
+                .name("Rosco")
+                .build();
         owner1.getPets().add(mikesPet);
         ownerService.save(owner1);
 
-        Owner owner2 = new Owner();
-        owner2.setFirstName("Fiona");
-        owner2.setLastName("Glenamme");
-        owner2.setAddress("123 Brickerel");
-        owner2.setCity("Miami");
-        owner2.setTelephone("1231231234");
+        Owner owner2 = Owner.builder()
+                .firstName("Fiona")
+                .lastName("Glenamme")
+                .address("123 Brickerel")
+                .city("Miami")
+                .telephone("1231231234")
+                .build();
 
-        Pet fionaPet = new Pet();
-        fionaPet.setPetType(savedCatPetType);
-        fionaPet.setOwner(owner2);
-        fionaPet.setBirthDate(LocalDate.now());
-        fionaPet.setName("Just Cat");
+        Pet fionaPet = Pet.builder()
+                .petType(savedCatPetType)
+                .owner(owner2)
+                .birthDate(LocalDate.now())
+                .name("Just Cat")
+                .build();
         owner2.getPets().add(fionaPet);
         ownerService.save(owner2);
 
-        Visit catVisit = new Visit();
-        catVisit.setPet(fionaPet);
-        catVisit.setDate(LocalDate.now());
-        catVisit.setDescription("Sneezy Kitty");
+        Visit catVisit = Visit.builder()
+                .pet(fionaPet)
+                .date(LocalDate.now())
+                .description("Sneezy Kitty")
+                .build();
 
         System.out.println("Loaded Owners.....");
 
-        Vet vet1 = new Vet();
-        vet1.setFirstName("Sam");
-        vet1.setLastName("Axe");
-
+        Vet vet1 = Vet.builder()
+                .firstName("Sam")
+                .lastName("Axe")
+                .build();
         vetService.save(vet1);
 
-        Vet vet2 = new Vet();
-        vet2.setFirstName("Jessie");
-        vet2.setLastName("Porter");
-
+        Vet vet2 = Vet.builder()
+                .firstName("Jessie")
+                .lastName("Porter")
+                .build();
         vetService.save(vet2);
 
         System.out.println("Loaded Vets.....");

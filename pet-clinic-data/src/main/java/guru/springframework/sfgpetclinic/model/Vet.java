@@ -1,5 +1,7 @@
 package guru.springframework.sfgpetclinic.model;
 
+import lombok.*;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
@@ -13,9 +15,19 @@ import java.util.Set;
  * Created by Andrei Soloviev (hedg.r52@gmail.com).
  * date: 04.11.2021
  */
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "vets")
 public class Vet extends Person {
+
+    @Builder
+    public Vet(Long id, String firstName, String lastName, Set<Speciality> specialties) {
+        super(id, firstName, lastName);
+        this.specialties = specialties;
+    }
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "vet_specialties",
@@ -24,11 +36,4 @@ public class Vet extends Person {
     )
     private Set<Speciality> specialties = new HashSet<>();
 
-    public Set<Speciality> getSpecialties() {
-        return specialties;
-    }
-
-    public void setSpecialties(Set<Speciality> specialties) {
-        this.specialties = specialties;
-    }
 }
