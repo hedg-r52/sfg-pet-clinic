@@ -32,7 +32,7 @@ public class VetSDJpaService implements VetService {
 
     @Override
     public Vet findById(Long id) {
-        return vetRepository.findById(id).orElseGet(null);
+        return vetRepository.findById(id).orElse(null);
     }
 
     @Override
