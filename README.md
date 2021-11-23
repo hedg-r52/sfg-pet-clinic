@@ -1,6 +1,6 @@
 # Spring Framework Guru Pet Clinic
 
-[![CircleCI](https://circleci.com/gh/hedg-r52/sfg-pet-clinic/tree/main.svg?style=shield)](https://circleci.com/gh/hedg-r52/sfg-pet-clinic/tree/main)
+[![CircleCI](https://circleci.com/gh/hedg-r52/sfg-pet-clinic/tree/main.svg?style=shield&circle-token=92c0a871eb5952b5cc87ca76620dd26a9310852a)](https://circleci.com/gh/hedg-r52/sfg-pet-clinic/tree/main)
 
 This repository was created for the educational purposes for passing throw the great course by John Thomson [Spring Framework 5: Beginner to Guru](https://www.udemy.com/course/spring-framework-5-beginner-to-guru)
 
