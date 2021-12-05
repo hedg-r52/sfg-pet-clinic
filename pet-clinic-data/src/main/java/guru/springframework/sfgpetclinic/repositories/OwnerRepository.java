@@ -2,7 +2,8 @@ package guru.springframework.sfgpetclinic.repositories;
 
 import guru.springframework.sfgpetclinic.model.Owner;
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * Created by Andrei Soloviev (hedg.r52@gmail.com).
@@ -10,4 +11,6 @@ import org.springframework.stereotype.Service;
  */
 public interface OwnerRepository extends CrudRepository<Owner, Long> {
     Owner findByLastName(String lastName);
+
+    List<Owner> findAllByLastNameLike(String lastName);
 }
