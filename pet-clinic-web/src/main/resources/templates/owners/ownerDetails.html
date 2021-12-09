@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <html xmlns:th="http://www.thymeleaf.org"
-      th:replace="~{fragments/layout :: layout (~{::body},'owners')}">
+      th:replace="~{fragments/layout :: layout (~{::body},'owners')}" lang="ru">
 
 <body>
 
@@ -16,15 +16,15 @@
   </tr>
   <tr>
     <th>Address</th>
-    <td th:text="*{address}" /></td>
+    <td th:text="*{address}"></td>
   </tr>
   <tr>
     <th>City</th>
-    <td th:text="*{city}" /></td>
+    <td th:text="*{city}"></td>
   </tr>
   <tr>
     <th>Telephone</th>
-    <td th:text="*{telephone}" /></td>
+    <td th:text="*{telephone}"></td>
   </tr>
 </table>
 
@@ -41,18 +41,17 @@
 <table class="table table-striped">
 
   <tr th:each="pet : ${owner.pets}">
-    <td valign="top">
+    <td style="vertical-align: top">
       <dl class="dl-horizontal">
         <dt>Name</dt>
-        <dd th:text="${pet.name}" /></dd>
+        <dd th:text="${pet.name}"></dd>
         <dt>Birth Date</dt>
-        <dd
-                th:text="${#temporals.format(pet.birthDate, 'yyyy-MM-dd')}" /></dd>
+        <dd th:text="${#temporals.format(pet.birthDate, 'yyyy-MM-dd')}"></dd>
         <dt>Type</dt>
-        <dd th:text="${pet.petType}" /></dd>
+        <dd th:text="${pet.petType}"></dd>
       </dl>
     </td>
-    <td valign="top">
+    <td style="vertical-align: top">
       <table class="table-condensed">
         <thead>
         <tr>
