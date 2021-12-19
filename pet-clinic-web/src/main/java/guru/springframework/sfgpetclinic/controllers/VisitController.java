@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.beans.PropertyEditorSupport;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Map;
 
 /**
@@ -35,7 +36,7 @@ public class VisitController {
         dataBinder.registerCustomEditor(LocalDate.class, new PropertyEditorSupport() {
             @Override
             public void setAsText(String text) throws IllegalArgumentException{
-                setValue(LocalDate.parse(text));
+                setValue(LocalDate.parse(text, DateTimeFormatter.ofPattern("dd.MM.yyyy")));
             }
         });
     }
